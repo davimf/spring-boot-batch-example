@@ -1,0 +1,23 @@
+#CONFIGURATIONS
+spring.profiles.include: 'tstconfiguration'
+
+#COMMIT INTERVAL
+chunkSize: 100
+
+#SKIP LIMIT FOR EXCEPTIONS
+skipLimitException: 9999
+
+#LOG CONFIG
+logging:
+  file: /etc/test/batchDefault.log
+  level:
+    root: ERROR
+    org.springframework: INFO
+    br.com.porto.auto: INFO
+
+#REPORT E-MAILS
+listener:
+  notification:
+    from: email@email.com
+    to: email@to.com
+    subject: Result TEST Enviroment Execution

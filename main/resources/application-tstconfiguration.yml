@@ -1,0 +1,66 @@
+#SPRING
+spring:
+  batch:
+    initialize:
+      schema: never
+      enabled: false
+  trace: false
+
+#DATASOURCES
+  oracle:
+    db01:
+      datasource:
+        driverClassName: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=HOSTDB01TST)(PORT=1521))(LOAD_BALANCE=yes))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=servicename01))))
+        username: userdb01
+        password: passwordbb01
+
+    db02:
+      datasource:
+        driverClassName: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=HOSTDB02TST)(PORT=1521))(LOAD_BALANCE=yes))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=servicename02))))
+        username: userdb02
+        password: passworddb02
+
+  informix:
+    db01:
+      datasource:
+        dataSourceClassName: com.informix.jdbcx.IfxDataSource
+        serverName: db01
+        IfxIFXHost: linuxdb01
+        portNumber: 1234
+        dataBaseName: dataBaseName1
+        username: userdb01
+        password: passworddb02
+
+    db02:
+      datasource:
+        dataSourceClassName: com.informix.jdbcx.IfxDataSource
+        serverName: db02
+        IfxIFXHost: linuxdb02
+        portNumber: 1234
+        dataBaseName: dataBaseName2
+        username: userdb02
+        password: passworddb02
+
+#LOG CONFIG
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    
+log4j:
+  configuration:
+    xmlns: http://jakarta.apache.org/log4j/
+  appender:
+    name: stdout
+    class: org.apache.log4j.ConsoleAppender
+    layout:
+      class: org.apache.log4j.PatternLayout
+      param:
+        name: ConversionPattern
+        value: "%d{HH:mm:ss,SSS} %5p [%-20c{1}] %m%n"
+    root:
+      level:
+        value: TRACE
+      appender-ref: stdout

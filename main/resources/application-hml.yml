@@ -1,0 +1,24 @@
+#CONFIGURATIONS
+spring.profiles.include: 'hmlconfiguration'
+
+#COMMIT INTERVAL
+chunkSize: 100
+
+#SKIP LIMIT FOR EXCEPTIONS
+skipLimitException: 9999
+
+#LOG CONFIG
+logging:
+  #UNIX
+  file: /etc/logs/batchDefault.log
+  level:
+    root: ERROR
+    org.springframework: INFO
+    br.com.porto.auto: INFO
+
+#REPORT E-MAILS
+listener:
+  notification:
+    from: email@email.com
+    to: email@to.com
+    subject: Result HOMOLOG Execution

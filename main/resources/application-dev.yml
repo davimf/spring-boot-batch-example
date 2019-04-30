@@ -1,0 +1,25 @@
+#CONFIGURATIONS
+spring.profiles.include: 'tstconfiguration'
+#spring.profiles.include: 'hmlconfiguration'
+
+#COMMIT INTERVAL
+chunkSize: 100
+
+#SKIP LIMIT FOR EXCEPTIONS
+skipLimitException: 9999
+
+#LOG CONFIG
+logging:
+  # WINDOWS
+  file: C:\\Users\\user\\logs\\batchDefault.log
+  level:
+    root: ERROR
+    org.springframework: DEBUG
+    br.com.porto.auto: DEBUG
+
+#REPORT E-MAILS
+listener:
+  notification:
+    from: email@email.com
+    to: email@to.com
+    subject: Result LOCAL Execution
